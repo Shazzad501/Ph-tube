@@ -1,86 +1,83 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PH-Tube</title>
-  <!-- Tailwind CSS & DaisyUI cdn link start -->
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.11/dist/full.min.css" rel="stylesheet" type="text/css" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Tailwind CSS & DaisyUI cdn link close -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PH_Tube</title>
 
-  <!-- Google font link start -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-  <!-- Google font link close -->
-
-  <!-- font awesome link start -->
-  <script src="https://kit.fontawesome.com/8a201b6bab.js" crossorigin="anonymous"></script>
-  <!-- font awesome link close -->
-
-  <!-- internal css style tag start -->
-   <style>
-    *{
-      font-family: "Inter", sans-serif;
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <style>
+    .active {
+      background-color: red;
+      color: white;
     }
-   </style>
-  <!-- internal css style tag close -->
-</head>
-<body>
-  <!-- header section start -->
-   <header class="w-11/12 mx-auto">
-    <nav class="flex items-center justify-between border-b py-2">
-      <div class="logo w-[120px]">
-        <img src="images/Logo.png" alt="">
+  </style>
+  <body>
+    <header class="">
+      <nav
+        class="w-11/12 mx-auto flex justify-between items-center py-2 border-b"
+      >
+        <div class="w-[100px]"><img src="images/Logo.png" alt="" /></div>
+        <div class="search">
+          <label class="input input-bordered flex items-center gap-2">
+            <input
+              id="search-input"
+              type="text"
+              class="grow"
+              placeholder="Search"
+            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              class="h-4 w-4 opacity-70"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </label>
+        </div>
+        <div>
+          <button class="btn">SORT</button>
+        </div>
+      </nav>
+    </header>
+    <nav id="categories" class="py-3 gap-5 flex justify-center"></nav>
+    <main>
+      <section
+        id="videos"
+        class="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 py-10"
+      ></section>
+    </main>
+
+    <!-- Open the modal using ID.showModal() method -->
+    <button
+      id="showmodaldata"
+      class="btn hidden"
+      onclick="custommodal.showModal()"
+    >
+      open modal
+    </button>
+    <dialog id="custommodal" class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box">
+        <div id="modal-content"></div>
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn">Close</button>
+          </form>
+        </div>
       </div>
-      <div class="search">
-        <label class="input input-bordered flex items-center gap-2">
-          <input type="text" class="grow" placeholder="Search" />
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 16 16"
-            fill="currentColor"
-            class="h-4 w-4 opacity-70">
-            <path
-              fill-rule="evenodd"
-              d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-              clip-rule="evenodd" />
-          </svg>
-        </label>
-      </div>
-      <div class="hidden md:block">
-        <button class="btn">SORT</button>
-      </div>
-    </nav>
-   </header>
-  <!-- header section close -->
-
-  <!-- main body section start -->
-   <main>
-    <!-- UI button section start -->
-     <div id="category-container" class="flex items-center justify-center gap-4 py-4">
-      
-     </div>
-    <!-- UI button section end -->
-
-    <!-- video section start -->
-     <div id="video" 
-     class="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 my-10">
-
-    </div>
-    <!-- video section close -->
-   </main>
-  <!-- main body section close -->
-
-  <!-- footer section start -->
-   <footer>
-
-   </footer>
-  <!-- footer section close -->
-
-  <!-- Javascript file link start -->
-   <script src="script.js"></script>
-  <!-- Javascript file link close -->
-</body>
+    </dialog>
+    <script src="script.js"></script>
+  </body>
 </html>
